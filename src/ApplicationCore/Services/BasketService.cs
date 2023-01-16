@@ -11,13 +11,10 @@ namespace Microsoft.eShopWeb.ApplicationCore.Services;
 public class BasketService : IBasketService
 {
     private readonly IRepository<Basket> _basketRepository;
-    private readonly IAppLogger<BasketService> _logger;
 
-    public BasketService(IRepository<Basket> basketRepository,
-        IAppLogger<BasketService> logger)
+    public BasketService(IRepository<Basket> basketRepository)
     {
         _basketRepository = basketRepository;
-        _logger = logger;
     }
 
     public async Task<Basket> AddItemToBasket(string username, int catalogItemId, decimal price, int quantity = 1)
@@ -54,7 +51,6 @@ public class BasketService : IBasketService
         {
             if (quantities.TryGetValue(item.Id.ToString(), out var quantity))
             {
-                if (_logger != null) _logger.LogInformation($"Updating quantity of item ID:{item.Id} to {quantity}.");
                 item.SetQuantity(quantity);
             }
         }

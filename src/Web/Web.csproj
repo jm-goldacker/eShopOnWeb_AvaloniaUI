@@ -25,7 +25,6 @@
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
@@ -39,6 +38,7 @@
     <Folder Include="wwwroot\lib\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Application\App.csproj" />
     <ProjectReference Include="..\ApplicationCore\ApplicationCore.csproj" />
     <ProjectReference Include="..\BlazorAdmin\BlazorAdmin.csproj" />
     <ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />

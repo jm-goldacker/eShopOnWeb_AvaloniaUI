@@ -10,7 +10,6 @@ namespace Microsoft.eShopWeb.Infrastructure.Data;
 public class CatalogContextSeed
 {
     public static async Task SeedAsync(CatalogContext catalogContext,
-        ILogger logger,
         int retry = 0)
     {
         var retryForAvailability = retry;
@@ -51,8 +50,7 @@ public class CatalogContextSeed
 
             retryForAvailability++;
             
-            logger.LogError(ex.Message);
-            await SeedAsync(catalogContext, logger, retryForAvailability);
+            await SeedAsync(catalogContext, retryForAvailability);
             throw;
         }
     }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using BlazorShared;
-using BlazorShared.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -134,7 +133,7 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var catalogContext = scopedProvider.GetRequiredService<CatalogContext>();
-        await CatalogContextSeed.SeedAsync(catalogContext, app.Logger);
+        await CatalogContextSeed.SeedAsync(catalogContext);
 
         var userManager = scopedProvider.GetRequiredService<UserManager<ApplicationUser>>();
         var roleManager = scopedProvider.GetRequiredService<RoleManager<IdentityRole>>();
